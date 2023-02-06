@@ -34,12 +34,14 @@ export function CyclesContextProvider({ children }: CyclesContextProviderProps) 
             cycles: [],
             activeCycleId: null,
         },
-        () => {
+        (initialValues) => {
             const storageStateAsJSON = localStorage.getItem(`#ignite-timer:cycles-state-${version}`)
 
             if (storageStateAsJSON) {
                 return JSON.parse(storageStateAsJSON)
             }
+
+            return initialValues
         }
     );
 
